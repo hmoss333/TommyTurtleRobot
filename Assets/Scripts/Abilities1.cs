@@ -522,7 +522,6 @@ public class Abilities1 : MonoBehaviour
 
         for (int i = 0; i < movement.Count; i++)
         {
-
             insertFormat(i);
 
             move.text = movement[i];
@@ -552,14 +551,24 @@ public class Abilities1 : MonoBehaviour
                     zowiController.walk(-1);
                 }
             }
-            if (movement[i].Contains("Turn") || movement[i].Contains("Spin"))
+            if (movement[i].Contains("Turn"))// || movement[i].Contains("Spin"))
             {
                 if (zowiController.device.IsConnected)
                 {
                     zowiController.turn(1);//, 6);
                 }
 
-                yield return new WaitForSeconds(zowiCommandWaitTime * 3);//6);
+                yield return new WaitForSeconds(6.25f);
+            }
+
+            if (movement[i].Contains("Spin"))
+            {
+                if (zowiController.device.IsConnected)
+                {
+                    zowiController.turn(1);//, 6);
+                }
+
+                yield return new WaitForSeconds(13.5f);
             }
 
             if (movement[i].Contains("Sing"))
@@ -593,7 +602,7 @@ public class Abilities1 : MonoBehaviour
                 zowiController.home();
             }
 
-            yield return new WaitForSeconds(zowiCommandWaitTime);//2f); //slow = 3f, medium = 2f, fast = 1f
+            yield return new WaitForSeconds(2f); //slow = 3f, medium = 2f, fast = 1f
         }
 
         if (zowiController.device.IsConnected)
