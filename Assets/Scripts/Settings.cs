@@ -43,6 +43,7 @@ public class Settings : MonoBehaviour {
     public GameObject tutorialButton;
     public GameObject exitButton;
     public GameObject backButton;
+    public GameObject zowiConnectButton;
 
     public GameObject movementButton;
     public GameObject abilitiesButton;
@@ -123,6 +124,7 @@ public class Settings : MonoBehaviour {
     //Zowi connect variables
     ZowiController zowiController;
     public Text zowiButtonText;
+    public Slider speedSlider;
 
     void Awake()
     {
@@ -164,6 +166,8 @@ public class Settings : MonoBehaviour {
         zowiController = FindObjectOfType<ZowiController>();
 
         checkToggleStates();
+
+        zowiSpeedSettings();
     }
 
     public void three20x480Portrait() { Screen.SetResolution(320, 480, true); }
@@ -473,7 +477,9 @@ public class Settings : MonoBehaviour {
         settingsButton.SetActive(false);
         exitButton.SetActive(false);
         stemDashCanvas.SetActive(false);
+        zowiConnectButton.SetActive(false);
         AddFirstPlayerCanvas.SetActive(false);
+        
 
         STEMDashOptionsBtn.SetActive(false);
         if (LoginToPortal.Instance.userIsLoggedIn)
@@ -493,6 +499,7 @@ public class Settings : MonoBehaviour {
         tutorialButton.SetActive(false);
         exitButton.SetActive(false);
         stemDashCanvas.SetActive(false);
+        zowiConnectButton.SetActive(false);
 
         STEMDashOptionsBtn.SetActive(false);
 
@@ -516,6 +523,7 @@ public class Settings : MonoBehaviour {
         exitButton.SetActive(false);
         mainCanvas.SetActive(false);
         stemDashCanvas.SetActive(false);
+        zowiConnectButton.SetActive(false);
         exitCanvas.SetActive(true);
         AddFirstPlayerCanvas.SetActive(false);
     }
@@ -528,6 +536,7 @@ public class Settings : MonoBehaviour {
         exitButton.SetActive(true);
         tutorialStoryCanvas.SetActive(false);
         stemDashCanvas.SetActive(false);
+        zowiConnectButton.SetActive(false);
         mainCanvas.SetActive(true);
         exitCanvas.SetActive(false);
         AddFirstPlayerCanvas.SetActive(false);
@@ -543,6 +552,7 @@ public class Settings : MonoBehaviour {
         exitButton.SetActive(false);
         exitCanvas.SetActive(false);
         stemDashCanvas.SetActive(false);
+        zowiConnectButton.SetActive(false);
         AddFirstPlayerCanvas.SetActive(false);
         StartCoroutine(loadStory());
 
@@ -723,6 +733,7 @@ public class Settings : MonoBehaviour {
         challengeButton.SetActive(false);
         exitButton.SetActive(false);
         stemDashCanvas.SetActive(false);
+        zowiConnectButton.SetActive(false);
 
         STEMDashOptionsBtn.SetActive(false);
         AddFirstPlayerCanvas.SetActive(false);
@@ -731,6 +742,24 @@ public class Settings : MonoBehaviour {
         StartCoroutine(settingsLoad());
     }
 
+    public void zowiSpeedSettings()
+    {
+        switch ((int)speedSlider.value)
+        {
+            case 0:
+                ZowiController.time = 1500;
+                break;
+            case 1:
+                ZowiController.time = 1000;
+                break;
+            case 2:
+                ZowiController.time = 500;
+                break;
+            default:
+                ZowiController.time = 1000;
+                break;
+        }
+    }
 
     public IEnumerator settingsLoad()
     {
@@ -770,6 +799,7 @@ public class Settings : MonoBehaviour {
         challengeButton.SetActive(true);
         stemDashCanvas.SetActive(false);
         STEMDashOptionsBtn.SetActive(true);
+        zowiConnectButton.SetActive(true);
         AddFirstPlayerCanvas.SetActive(false);
         addingPlayerStatusCanvas.SetActive(false);
         STEMDashInviteCanvas.SetActive(false);
@@ -1268,6 +1298,7 @@ public class Settings : MonoBehaviour {
         freePlayButton.SetActive(false);
         challengeButton.SetActive(false);
         settingsButton.SetActive(false);
+        zowiConnectButton.SetActive(false);
         exitButton.SetActive(false);
 
         ParentalGate();

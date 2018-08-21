@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{18714800-CCFE-CB75-B688-0F3F39928C13}</ProjectGuid>
+    <ProjectGuid>{48C81B4B-3B1C-A938-E963-D10D3A4A891A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
@@ -113,19 +113,19 @@
  <HintPath>C:/Program Files/Unity 5.6.1/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="OneSignalSDK_WP_WNS">
- <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/TommyTurtle/Assets/OneSignal/Platforms/OneSignalSDK_WP_WNS.dll</HintPath>
+ <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/TommyTurtleRobot/Assets/OneSignal/Platforms/OneSignalSDK_WP_WNS.dll</HintPath>
  </Reference>
  <Reference Include="clipper_library">
- <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/TommyTurtle/Assets/Plugins/clipper_library.dll</HintPath>
+ <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/TommyTurtleRobot/Assets/Plugins/clipper_library.dll</HintPath>
  </Reference>
  <Reference Include="Poly2Tri">
- <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/TommyTurtle/Assets/Plugins/Poly2Tri.dll</HintPath>
+ <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/TommyTurtleRobot/Assets/Plugins/Poly2Tri.dll</HintPath>
  </Reference>
  <Reference Include="UniRateWP">
- <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/TommyTurtle/Assets/Plugins/UniRateWP.dll</HintPath>
+ <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/TommyTurtleRobot/Assets/Plugins/UniRateWP.dll</HintPath>
  </Reference>
  <Reference Include="TextMeshPro">
- <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/TommyTurtle/Assets/TextMesh Pro/Plugins/Runtime DLL/TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/HMoss.DESKTOP-LO6F45S/Documents/GitHub/TommyTurtleRobot/Assets/TextMesh Pro/Plugins/Runtime DLL/TextMeshPro.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

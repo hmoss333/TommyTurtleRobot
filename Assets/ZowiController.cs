@@ -11,7 +11,7 @@ public class ZowiController : MonoBehaviour {
     public static ZowiController instance = null;
 
     public BluetoothDevice device;
-    private int time = 1000;
+    public static int time = 1000;
 
     // Use this for initialization
     private void Awake () {

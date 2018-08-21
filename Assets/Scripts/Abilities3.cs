@@ -56,6 +56,7 @@ public class Abilities3 : MonoBehaviour
 
     ZowiController zowiController;
     public GameObject transmittingBackground;
+    float zowiCommandWaitTime;
 
     // Use this for initialization
     void Start()
@@ -116,6 +117,23 @@ public class Abilities3 : MonoBehaviour
         if (zowiController.device.IsConnected)
             zowiController.home();
         transmittingBackground.SetActive(false);
+
+        switch (ZowiController.time)
+        {
+            case 1500:
+                zowiCommandWaitTime = 3f;
+                break;
+            case 1000:
+                zowiCommandWaitTime = 2f;
+                break;
+            case 500:
+                zowiCommandWaitTime = 1f;
+                break;
+            default:
+                zowiCommandWaitTime = 2f;
+                Debug.Log("Can't get control time");
+                break;
+        }
     }
      
     void narrationVoiceOverStop()
@@ -504,6 +522,10 @@ public class Abilities3 : MonoBehaviour
 
         for (int i = 0; i < movement.Count; i++)
         {
+            insertFormat(i);
+
+            move.text = movement[i];
+            //playMoveName(move.text);
 
             //if (movement[i].Contains("Begin Loop")) { /*i++;*/ saveStartLocation = i; }
 
@@ -536,7 +558,7 @@ public class Abilities3 : MonoBehaviour
                     zowiController.turn(1);//, 6);
                 }
 
-                yield return new WaitForSeconds(6);
+                yield return new WaitForSeconds(zowiCommandWaitTime * 3);//6);
             }
 
             if (movement[i].Contains("Sing"))
@@ -565,17 +587,12 @@ public class Abilities3 : MonoBehaviour
                 }
             }
 
-            insertFormat(i);
-
-            move.text = movement[i];
-            //playMoveName(move.text);
-
             if (zowiController.device.IsConnected)
             {
                 zowiController.home();
             }
 
-            yield return new WaitForSeconds(2f); //slow = 3f, medium = 2f, fast = 1f
+            yield return new WaitForSeconds(zowiCommandWaitTime);//2f); //slow = 3f, medium = 2f, fast = 1f
         }
 
         if (zowiController.device.IsConnected)
