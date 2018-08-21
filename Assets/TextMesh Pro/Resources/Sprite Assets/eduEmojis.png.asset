@@ -1,0 +1,279 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2019389346, guid: b5bd0d848a86e48409fe56688d66ecb5, type: 3}
+  m_Name: eduEmojis.png
+  m_EditorClassIdentifier: 
+  hashCode: -340208076
+  material: {fileID: 21439987612767986}
+  materialHashCode: 0
+  spriteSheet: {fileID: 2800000, guid: a5a0af651b9a7ed428871283cc54b833, type: 3}
+  spriteInfoList:
+  - id: 0
+    x: 2
+    y: 912
+    width: 506
+    height: 108
+    xOffset: 16.9
+    yOffset: 105.41
+    xAdvance: 506
+    scale: 1
+    name: eduEmojis.png_0
+    hashCode: -1119405445
+    unicode: 0
+    pivot: {x: -253, y: 54}
+    sprite: {fileID: 21300000, guid: a5a0af651b9a7ed428871283cc54b833, type: 3}
+  - id: 1
+    x: 2
+    y: 826
+    width: 256
+    height: 82
+    xOffset: 22.11
+    yOffset: 76.2
+    xAdvance: 256
+    scale: 1
+    name: eduEmojis.png_1
+    hashCode: -1119405446
+    unicode: 0
+    pivot: {x: -128, y: 41}
+    sprite: {fileID: 21300002, guid: a5a0af651b9a7ed428871283cc54b833, type: 3}
+  - id: 2
+    x: 263
+    y: 782
+    width: 229
+    height: 128
+    xOffset: 13.15
+    yOffset: 117.88
+    xAdvance: 229
+    scale: 1.5
+    name: eduEmojis.png_2
+    hashCode: -1119405447
+    unicode: 0
+    pivot: {x: -114.5, y: 64}
+    sprite: {fileID: 21300004, guid: a5a0af651b9a7ed428871283cc54b833, type: 3}
+  - id: 3
+    x: 2
+    y: 695
+    width: 230
+    height: 121
+    xOffset: 13.8
+    yOffset: 94.9
+    xAdvance: 230
+    scale: 1.5
+    name: eduEmojis.png_3
+    hashCode: -1119405448
+    unicode: 0
+    pivot: {x: -115, y: 60.5}
+    sprite: {fileID: 21300006, guid: a5a0af651b9a7ed428871283cc54b833, type: 3}
+  - id: 4
+    x: 371
+    y: 654
+    width: 127
+    height: 122
+    xOffset: 8
+    yOffset: 90.12
+    xAdvance: 127
+    scale: 2
+    name: eduEmojis.png_5
+    hashCode: -1119405442
+    unicode: 0
+    pivot: {x: -63.5, y: 61}
+    sprite: {fileID: 21300010, guid: a5a0af651b9a7ed428871283cc54b833, type: 3}
+  - id: 5
+    x: 238
+    y: 652
+    width: 130
+    height: 128
+    xOffset: 10.67
+    yOffset: 93.36
+    xAdvance: 130
+    scale: 2
+    name: eduEmojis.png_4
+    hashCode: -1119405441
+    unicode: 0
+    pivot: {x: -65, y: 64}
+    sprite: {fileID: 21300008, guid: a5a0af651b9a7ed428871283cc54b833, type: 3}
+  - id: 6
+    x: 2
+    y: 596
+    width: 126
+    height: 92
+    xOffset: 7.4
+    yOffset: 78.2
+    xAdvance: 126
+    scale: 1.5
+    name: eduEmojis.png_6
+    hashCode: -1119405443
+    unicode: 0
+    pivot: {x: -63, y: 46}
+    sprite: {fileID: 21300012, guid: a5a0af651b9a7ed428871283cc54b833, type: 3}
+  - id: 7
+    x: 261
+    y: 552
+    width: 125
+    height: 88
+    xOffset: 7.6
+    yOffset: 79.4
+    xAdvance: 125
+    scale: 1.5
+    name: eduEmojis.png_8
+    hashCode: -1119405453
+    unicode: 0
+    pivot: {x: -62.5, y: 44}
+    sprite: {fileID: 21300016, guid: a5a0af651b9a7ed428871283cc54b833, type: 3}
+  - id: 8
+    x: 132
+    y: 527
+    width: 125
+    height: 119
+    xOffset: 5.4
+    yOffset: 93.88
+    xAdvance: 125
+    scale: 2
+    name: eduEmojis.png_7
+    hashCode: -1119405444
+    unicode: 0
+    pivot: {x: -62.5, y: 59.5}
+    sprite: {fileID: 21300014, guid: a5a0af651b9a7ed428871283cc54b833, type: 3}
+  - id: 9
+    x: 396
+    y: 523
+    width: 112
+    height: 124
+    xOffset: 10.38
+    yOffset: 92.3
+    xAdvance: 112
+    scale: 2
+    name: eduEmojis.png_9
+    hashCode: -1119405454
+    unicode: 0
+    pivot: {x: -56, y: 62}
+    sprite: {fileID: 21300018, guid: a5a0af651b9a7ed428871283cc54b833, type: 3}
+  - id: 10
+    x: 2
+    y: 475
+    width: 125
+    height: 111
+    xOffset: 6.04
+    yOffset: 83.8
+    xAdvance: 125
+    scale: 2
+    name: eduEmojis.png_10
+    hashCode: 1714325898
+    unicode: 0
+    pivot: {x: -62.5, y: 55.5}
+    sprite: {fileID: 21300020, guid: a5a0af651b9a7ed428871283cc54b833, type: 3}
+  - id: 11
+    x: 261
+    y: 426
+    width: 121
+    height: 123
+    xOffset: 4.85
+    yOffset: 92.2
+    xAdvance: 121
+    scale: 2
+    name: eduEmojis.png_12
+    hashCode: 1714325896
+    unicode: 0
+    pivot: {x: -60.5, y: 61.5}
+    sprite: {fileID: 21300024, guid: a5a0af651b9a7ed428871283cc54b833, type: 3}
+  - id: 12
+    x: 390
+    y: 396
+    width: 112
+    height: 123
+    xOffset: 7.37
+    yOffset: 92.2
+    xAdvance: 112
+    scale: 2
+    name: eduEmojis.png_13
+    hashCode: 1714325897
+    unicode: 0
+    pivot: {x: -56, y: 61.5}
+    sprite: {fileID: 21300026, guid: a5a0af651b9a7ed428871283cc54b833, type: 3}
+  - id: 13
+    x: 2
+    y: 345
+    width: 115
+    height: 125
+    xOffset: 8.7
+    yOffset: 99.1
+    xAdvance: 115
+    scale: 2
+    name: eduEmojis.png_14
+    hashCode: 1714325902
+    unicode: 0
+    pivot: {x: -57.5, y: 62.5}
+    sprite: {fileID: 21300028, guid: a5a0af651b9a7ed428871283cc54b833, type: 3}
+  - id: 14
+    x: 131
+    y: 268
+    width: 115
+    height: 252
+    xOffset: 13.92
+    yOffset: 200.8
+    xAdvance: 115
+    scale: 2
+    name: eduEmojis.png_11
+    hashCode: 1714325899
+    unicode: 0
+    pivot: {x: -57.5, y: 126}
+    sprite: {fileID: 21300022, guid: a5a0af651b9a7ed428871283cc54b833, type: 3}
+  fallbackSpriteAssets: []
+--- !u!21 &21439987612767986
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: TextMeshPro/Sprite
+  m_Shader: {fileID: 4800000, guid: 3a1c68c8292caf046bd21158886c5e40, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 2800000, guid: a5a0af651b9a7ed428871283cc54b833, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _ColorMask
+      second: 15
+    - first:
+        name: _Stencil
+      second: 0
+    - first:
+        name: _StencilComp
+      second: 8
+    - first:
+        name: _StencilOp
+      second: 0
+    - first:
+        name: _StencilReadMask
+      second: 255
+    - first:
+        name: _StencilWriteMask
+      second: 255
+    - first:
+        name: _UseUIAlphaClip
+      second: 0
+    m_Colors:
+    - first:
+        name: _ClipRect
+      second: {r: -32767, g: -32767, b: 32767, a: 32767}
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}

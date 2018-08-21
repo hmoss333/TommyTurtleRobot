@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGame.CSharp.Plugins", "CodeGame.CSharp.Plugins.csproj", "{2F135A4B-03EB-7C71-F39E-A2003CC637F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGame.CSharp", "CodeGame.CSharp.csproj", "{BB52A49E-A5D0-50AD-10F2-DF1E18AC4A5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGame.CSharp.Editor", "CodeGame.CSharp.Editor.csproj", "{69FCE118-71EF-99F8-6550-8D0BF7A0171E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F135A4B-03EB-7C71-F39E-A2003CC637F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F135A4B-03EB-7C71-F39E-A2003CC637F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F135A4B-03EB-7C71-F39E-A2003CC637F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F135A4B-03EB-7C71-F39E-A2003CC637F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB52A49E-A5D0-50AD-10F2-DF1E18AC4A5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB52A49E-A5D0-50AD-10F2-DF1E18AC4A5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB52A49E-A5D0-50AD-10F2-DF1E18AC4A5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB52A49E-A5D0-50AD-10F2-DF1E18AC4A5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69FCE118-71EF-99F8-6550-8D0BF7A0171E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69FCE118-71EF-99F8-6550-8D0BF7A0171E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69FCE118-71EF-99F8-6550-8D0BF7A0171E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69FCE118-71EF-99F8-6550-8D0BF7A0171E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

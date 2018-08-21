@@ -1,0 +1,904 @@
+fileFormatVersion: 2
+guid: 6f59b218146d7a64f886a869f01f705a
+timeCreated: 1512138897
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: emojiTest_0
+    21300002: emojiTest_1
+    21300004: emojiTest_2
+    21300006: emojiTest_3
+    21300008: emojiTest_4
+    21300010: emojiTest_5
+    21300012: emojiTest_6
+    21300014: emojiTest_7
+    21300016: emojiTest_8
+    21300018: emojiTest_9
+    21300020: emojiTest_10
+    21300022: emojiTest_11
+    21300024: emojiTest_12
+    21300026: emojiTest_13
+    21300028: emojiTest_14
+    21300030: emojiTest_15
+    21300032: emojiTest_16
+    21300034: emojiTest_17
+    21300036: emojiTest_18
+    21300038: emojiTest_19
+    21300040: emojiTest_20
+    21300042: emojiTest_21
+    21300044: emojiTest_22
+    21300046: emojiTest_23
+    21300048: emojiTest_24
+    21300050: emojiTest_25
+    21300052: emojiTest_26
+    21300054: emojiTest_27
+    21300056: emojiTest_28
+    21300058: emojiTest_29
+    21300060: emojiTest_30
+    21300062: emojiTest_31
+    21300064: emojiTest_32
+    21300066: emojiTest_33
+    21300068: emojiTest_34
+    21300070: emojiTest_35
+    21300072: emojiTest_36
+    21300074: emojiTest_37
+    21300076: emojiTest_38
+    21300078: emojiTest_39
+    21300080: emojiTest_40
+    21300082: emojiTest_41
+    21300084: emojiTest_42
+    21300086: emojiTest_43
+    21300088: emojiTest_44
+    21300090: emojiTest_45
+    21300092: emojiTest_46
+    21300094: emojiTest_47
+    21300096: emojiTest_48
+    21300098: emojiTest_49
+    21300100: emojiTest_50
+    21300102: emojiTest_51
+    21300104: emojiTest_52
+    21300106: emojiTest_53
+    21300108: emojiTest_54
+    21300110: emojiTest_55
+    21300112: emojiTest_56
+    21300114: emojiTest_57
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: emojiTest_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1938
+        width: 506
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1852
+        width: 256
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_2
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 1808
+        width: 229
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_3
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1721
+        width: 230
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_4
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 1679
+        width: 132
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_5
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 1680
+        width: 127
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1622
+        width: 126
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_7
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 1553
+        width: 125
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_8
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 1580
+        width: 125
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_9
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 1549
+        width: 112
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_10
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1501
+        width: 125
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_11
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1294
+        width: 115
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_12
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 1452
+        width: 121
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_13
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1422
+        width: 112
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_14
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1371
+        width: 115
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1162
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_16
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 1162
+        width: 131
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_17
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1162
+        width: 129
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_18
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 1164
+        width: 109
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1035
+        width: 130
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_20
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 1034
+        width: 126
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_21
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1034
+        width: 126
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_22
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 1032
+        width: 110
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 906
+        width: 130
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_24
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 932
+        width: 128
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_25
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 906
+        width: 130
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_26
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 902
+        width: 103
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_27
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1012
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_28
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 956
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 777
+        width: 130
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_30
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 780
+        width: 124
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_31
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 776
+        width: 130
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_32
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 786
+        width: 114
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 671
+        width: 130
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_34
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 655
+        width: 130
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_35
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 677
+        width: 130
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_36
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 655
+        width: 108
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_37
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 556
+        width: 129
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_38
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 524
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_39
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 570
+        width: 126
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_40
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 523
+        width: 101
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_41
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 427
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_42
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 392
+        width: 86
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_43
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 468
+        width: 124
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_44
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 404
+        width: 116
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_45
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 301
+        width: 122
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_46
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 285
+        width: 114
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_47
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 331
+        width: 118
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_48
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 280
+        width: 116
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_49
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 175
+        width: 106
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_50
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 157
+        width: 105
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_51
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 227
+        width: 99
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_52
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 206
+        width: 92
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_53
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 40
+        width: 94
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_54
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 160
+        width: 72
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_55
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 24
+        width: 102
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_56
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 24
+        width: 98
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emojiTest_57
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 67
+        width: 94
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
