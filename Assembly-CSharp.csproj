@@ -58,8 +58,6 @@
      <Compile Include="Assets\BT_Library\Scripts\CoreLibrary\BtBridge.cs" />
      <Compile Include="Assets\BT_Library\Scripts\CoreLibrary\BtPackets.cs" />
      <Compile Include="Assets\BT_Library\Scripts\ScrollTerminalUI.cs" />
-     <Compile Include="Assets\Combos2.cs" />
-     <Compile Include="Assets\Combos3.cs" />
      <Compile Include="Assets\Mobile Cartoon GUI\Scripts\ButtonAnimationContoller.cs" />
      <Compile Include="Assets\OneSignal\Example\GameControllerExample.cs" />
      <Compile Include="Assets\OneSignal\src\MiniJSON.cs" />
@@ -106,6 +104,8 @@
      <Compile Include="Assets\Scripts\AnimateFriend.cs" />
      <Compile Include="Assets\Scripts\AnimatePlayer.cs" />
      <Compile Include="Assets\Scripts\Combos1.cs" />
+     <Compile Include="Assets\Scripts\Combos2.cs" />
+     <Compile Include="Assets\Scripts\Combos3.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\LoadManager.cs" />
      <Compile Include="Assets\Scripts\Loops1.cs" />
@@ -119,6 +119,9 @@
      <Compile Include="Assets\Scripts\SlotController.cs" />
      <Compile Include="Assets\Scripts\SplashScreen_.cs" />
      <Compile Include="Assets\Scripts\TitleAnimation.cs" />
+     <Compile Include="Assets\Scripts\Tutorial.cs" />
+     <Compile Include="Assets\Scripts\ZowiController.cs" />
+     <Compile Include="Assets\Scripts\ZowiProtocol.cs" />
      <Compile Include="Assets\Scripts\finishedSavingHandler.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples\Scripts\Benchmark01_UGUI.cs" />
@@ -151,14 +154,11 @@
      <Compile Include="Assets\TextMesh Pro\Examples\Scripts\VertexShakeB.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples\Scripts\WarpTextExample.cs" />
-     <Compile Include="Assets\Tutorial.cs" />
      <Compile Include="Assets\UniRate\DemoScene\UniRateEventHandler.cs" />
      <Compile Include="Assets\UniRate\DemoScene\UniRateGUIScript.cs" />
      <Compile Include="Assets\UniRate\Script\UniRate.cs" />
      <Compile Include="Assets\UniRate\Script\UniRateAppInfo.cs" />
      <Compile Include="Assets\UniRate\Script\UniRateMiniJSON.cs" />
-     <Compile Include="Assets\ZowiController.cs" />
-     <Compile Include="Assets\ZowiProtocol.cs" />
      <None Include="Assets\BT_Library\Arduino_Basic_Test\Read me.txt" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />

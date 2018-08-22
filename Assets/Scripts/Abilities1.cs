@@ -525,17 +525,12 @@ public class Abilities1 : MonoBehaviour
             insertFormat(i);
 
             move.text = movement[i];
+
             //playMoveName(move.text);
 
-            //if (movement[i].Contains("Begin Loop")) { /*i++;*/ saveStartLocation = i; }
+            if (movement[i].Contains("Begin Loop")) { /*i++;*/ saveStartLocation = i; }
 
-            //if (movement[i].Contains("End Loop")) { countLoops++; if (countLoops < loopsFromSlider) { i = saveStartLocation; } else { countLoops = 0; } }
-
-            //if (movement[i].Contains("Roll") || movement[i].Contains("Spin"))
-            //{
-            //    resetAfterSpinOrRoll = player.transform.eulerAngles;
-            //    AnimatePlayer.run = true;
-            //}
+            if (movement[i].Contains("End Loop")) { countLoops++; if (countLoops < loopsFromSlider) { i = saveStartLocation; } else { countLoops = 0; } }
 
             if (movement[i].Contains("Forward"))
             {
@@ -551,24 +546,25 @@ public class Abilities1 : MonoBehaviour
                     zowiController.walk(-1);
                 }
             }
+
             if (movement[i].Contains("Turn"))// || movement[i].Contains("Spin"))
             {
                 if (zowiController.device.IsConnected)
                 {
-                    zowiController.turn(1);//, 6);
+                    zowiController.turn(1);
                 }
 
-                yield return new WaitForSeconds(6.25f);
+                yield return new WaitForSeconds(7f);
             }
 
             if (movement[i].Contains("Spin"))
             {
                 if (zowiController.device.IsConnected)
                 {
-                    zowiController.turn(1);//, 6);
+                    zowiController.turn(1);
                 }
 
-                yield return new WaitForSeconds(13.5f);
+                yield return new WaitForSeconds(14f);
             }
 
             if (movement[i].Contains("Sing"))
@@ -605,10 +601,10 @@ public class Abilities1 : MonoBehaviour
             yield return new WaitForSeconds(2f); //slow = 3f, medium = 2f, fast = 1f
         }
 
-        if (zowiController.device.IsConnected)
-        {
-            zowiController.home();
-        }
+        //if (zowiController.device.IsConnected)
+        //{
+        //    zowiController.home();
+        //}
         move.text = "Done Moving";
         checkCorrect();
     }

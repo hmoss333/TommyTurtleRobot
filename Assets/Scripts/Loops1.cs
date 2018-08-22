@@ -55,6 +55,10 @@ public class Loops1 : MonoBehaviour
     public Button[] myButtons;
     int buttonCount;
 
+    ZowiController zowiController;
+    public GameObject transmittingBackground;
+    float zowiCommandWaitTime;
+
     // Use this for initialization
     void Start()
     {
@@ -109,6 +113,28 @@ public class Loops1 : MonoBehaviour
         if (PlayerPrefs.GetInt("Scan") == 1) { StartCoroutine(scanner()); }
         if (PlayerPrefs.GetInt("Voice") == 1) { narration.Play(); }
         GameStatusEventHandler.gameWasStarted("challenge");
+
+        zowiController = GameObject.FindObjectOfType<ZowiController>();
+        if (zowiController.device.IsConnected)
+            zowiController.home();
+        transmittingBackground.SetActive(false);
+
+        switch (ZowiController.time)
+        {
+            case 1500:
+                zowiCommandWaitTime = 3f;
+                break;
+            case 1000:
+                zowiCommandWaitTime = 2f;
+                break;
+            case 500:
+                zowiCommandWaitTime = 1f;
+                break;
+            default:
+                zowiCommandWaitTime = 2f;
+                Debug.Log("Can't get control time");
+                break;
+        }
     }
 
     void narrationVoiceOverStop()
@@ -163,79 +189,82 @@ public class Loops1 : MonoBehaviour
             }
         }
 
-        if (move.text.Contains("Forward"))
+        if (!zowiController.device.IsConnected)
         {
-            if (facingRight)
+            if (move.text.Contains("Forward"))
             {
-                if (player.transform.position.x < 6.7)
+                if (facingRight)
                 {
-                    player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x + 2, player.transform.position.y, 0), Time.deltaTime * 1);
+                    if (player.transform.position.x < 6.7)
+                    {
+                        player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x + 2, player.transform.position.y, 0), Time.deltaTime * 1);
+                    }
+                }
+                else
+                {
+                    if (player.transform.position.x > -7.4)
+                    {
+                        player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x - 2, player.transform.position.y, 0), Time.deltaTime * 1);
+                    }
                 }
             }
-            else
+
+            if (move.text.Contains("Backward"))
             {
-                if (player.transform.position.x > -7.4)
+                if (facingRight)
                 {
-                    player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x - 2, player.transform.position.y, 0), Time.deltaTime * 1);
+                    if (player.transform.position.x > -7.4)
+                    {
+                        player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x - 2, player.transform.position.y, 0), Time.deltaTime * 1);
+                    }
+                }
+                else
+                {
+                    if (player.transform.position.x < 6.7)
+                    {
+                        player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x + 2, player.transform.position.y, 0), Time.deltaTime * 1);
+                    }
                 }
             }
-        }
 
-        if (move.text.Contains("Backward"))
-        {
-            if (facingRight)
+
+            if (move.text.Contains("Spin")) { spinOrRoll = true; player.transform.Rotate(0, Time.deltaTime * 370, 0); }
+
+            if (move.text.Contains("Grow") && growthSwitch)
             {
-                if (player.transform.position.x > -7.4)
+                if (player.transform.localScale.x < 3)
                 {
-                    player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x - 2, player.transform.position.y, 0), Time.deltaTime * 1);
+                    player.transform.localScale = new Vector3(player.transform.localScale.x + .5f, player.transform.localScale.y + .5f, player.transform.localScale.z + .5f);
+                }
+                growthSwitch = false;
+            }
+
+            if (move.text.Contains("Shrink") && shrinkSwitch)
+            {
+                if (player.transform.localScale.x > .5f)
+                {
+                    player.transform.localScale = new Vector3(player.transform.localScale.x - .5f, player.transform.localScale.y - .5f, player.transform.localScale.z - .5f);
+                }
+                shrinkSwitch = false;
+            }
+
+            if (move.text.Contains("Jump"))
+            {
+                if (jumpSwitch)
+                {
+                    player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x, player.transform.position.y + 2, 0), Time.deltaTime * 4);
+                }
+                else
+                {
+                    player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x, player.transform.position.y - 2, 0), Time.deltaTime * 4);
                 }
             }
-            else
+
+            if (move.text.Contains("Turn"))
             {
-                if (player.transform.position.x < 6.7)
-                {
-                    player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x + 2, player.transform.position.y, 0), Time.deltaTime * 1);
-                }
+                turned = true;
+                player.transform.Rotate(0, Time.deltaTime * 180, 0);
             }
-        }
-
-
-        if (move.text.Contains("Spin")) { spinOrRoll = true; player.transform.Rotate(0, Time.deltaTime * 370, 0); }
-
-        if (move.text.Contains("Grow") && growthSwitch)
-        {
-            if (player.transform.localScale.x < 3)
-            {
-                player.transform.localScale = new Vector3(player.transform.localScale.x + .5f, player.transform.localScale.y + .5f, player.transform.localScale.z + .5f);
-            }
-            growthSwitch = false;
-        }
-
-        if (move.text.Contains("Shrink") && shrinkSwitch)
-        {
-            if (player.transform.localScale.x > .5f)
-            {
-                player.transform.localScale = new Vector3(player.transform.localScale.x - .5f, player.transform.localScale.y - .5f, player.transform.localScale.z - .5f);
-            }
-            shrinkSwitch = false;
-        }
-
-        if (move.text.Contains("Jump"))
-        {
-            if (jumpSwitch)
-            {
-                player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x, player.transform.position.y + 2, 0), Time.deltaTime * 4);
-            }
-            else
-            {
-                player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x, player.transform.position.y - 2, 0), Time.deltaTime * 4);
-            }
-        }
-
-        if (move.text.Contains("Turn"))
-        {
-            turned = true;
-            player.transform.Rotate(0, Time.deltaTime * 180, 0);
         }
     }
 
@@ -331,7 +360,10 @@ public class Loops1 : MonoBehaviour
             player.transform.localScale = new Vector3(2, 2, 2);
             player.transform.rotation = Quaternion.Euler(0, 90, 0);
             player.transform.position = new Vector3(-2.64f, -3.72f, 0.28f);
-            StartCoroutine(playingMovement());
+            if (zowiController.device.IsConnected)
+                StartCoroutine(sendToZowi());
+            else
+                StartCoroutine(playingMovement());
         }
         else { move.text = "Must Close All Loops To Play"; }
     }
@@ -484,6 +516,99 @@ public class Loops1 : MonoBehaviour
         checkCorrect();
     }
 
+    IEnumerator sendToZowi()
+    {
+        transmittingBackground.SetActive(true);
+
+        for (int i = 0; i < movement.Count; i++)
+        {
+            insertFormat(i);
+
+            move.text = movement[i];
+
+            //playMoveName(move.text);
+
+            if (movement[i].Contains("Begin Loop")) { /*i++;*/ saveStartLocation = i; }
+
+            if (movement[i].Contains("End Loop")) { countLoops++; if (countLoops < loopsFromSlider) { i = saveStartLocation; } else { countLoops = 0; } }
+
+            if (movement[i].Contains("Forward"))
+            {
+                if (zowiController.device.IsConnected)
+                {
+                    zowiController.walk(1);
+                }
+            }
+            if (movement[i].Contains("Backward"))
+            {
+                if (zowiController.device.IsConnected)
+                {
+                    zowiController.walk(-1);
+                }
+            }
+
+            if (movement[i].Contains("Turn"))// || movement[i].Contains("Spin"))
+            {
+                if (zowiController.device.IsConnected)
+                {
+                    zowiController.turn(1);
+                }
+
+                yield return new WaitForSeconds(7f);
+            }
+
+            if (movement[i].Contains("Spin"))
+            {
+                if (zowiController.device.IsConnected)
+                {
+                    zowiController.turn(1);
+                }
+
+                yield return new WaitForSeconds(14f);
+            }
+
+            if (movement[i].Contains("Sing"))
+            {
+                //AnimatePlayer.sing = true;
+
+                if (zowiController.device.IsConnected)
+                {
+                    zowiController.testSound();
+                }
+            }
+
+            if (movement[i].Contains("Jump"))
+            {
+                if (zowiController.device.IsConnected)
+                {
+                    zowiController.jump();
+                }
+            }
+
+            if (movement[i].Contains("Grow") || movement[i].Contains("Shrink"))
+            {
+                if (zowiController.device.IsConnected)
+                {
+                    zowiController.updown();
+                }
+            }
+
+            if (zowiController.device.IsConnected)
+            {
+                zowiController.home();
+            }
+
+            yield return new WaitForSeconds(2f); //slow = 3f, medium = 2f, fast = 1f
+        }
+
+        //if (zowiController.device.IsConnected)
+        //{
+        //    zowiController.home();
+        //}
+        move.text = "Done Moving";
+        checkCorrect();
+    }
+
     void checkCorrect()
     {
         try
@@ -500,6 +625,8 @@ public class Loops1 : MonoBehaviour
         {
             displayErrorMessage();
         }
+
+        transmittingBackground.SetActive(false);
     }
     void displayWinScreen()
     {
