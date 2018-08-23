@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour {
 
@@ -42,17 +43,19 @@ public class GameManager : MonoBehaviour {
     string endFormat;
     int movementLengthCollection;
     bool loopState;
-  
+
     public AudioClip[] mySounds;
 
     public Button[] myButtons;
     int buttonCount;
 
+    ZowiController zowiController;
+
     // Use this for initialization
     void Start()
     {
         moveBackground = GameObject.Find("MoveBackground");
-        switch(PlayerPrefs.GetInt("fontSizeIndex"))
+        switch (PlayerPrefs.GetInt("fontSizeIndex"))
         {
             case 0:
                 moveBackground.transform.localScale = new Vector2(1.0f, 1.0f);
@@ -88,10 +91,39 @@ public class GameManager : MonoBehaviour {
         startFormat = "<b><color=#00ff00ff>";
         endFormat = "</color></b>";
         movementLengthCollection = 0;
-     
+
         buttonCount = 0;
         if (PlayerPrefs.GetInt("Scan") == 1) { StartCoroutine(scanner()); }
         GameStatusEventHandler.gameWasStarted("freeplay");
+
+        zowiController = GameObject.FindObjectOfType<ZowiController>();
+        if (zowiController.device.IsConnected)
+            zowiController.home();
+    }
+
+    public void zowiWalk(int dir)
+    {
+        AnimatePlayer.run = true;
+
+        if (zowiController.device.IsConnected)
+            zowiController.walk(dir);
+    }
+    public void zowiTurn(int dir)
+    {
+        AnimatePlayer.run = true;
+
+        if (zowiController.device.IsConnected)
+            zowiController.turn(dir);
+    }
+    public void zowiReset()
+    {
+        AnimatePlayer.run = false;
+        AnimatePlayer.sing = false;
+        AnimatePlayer.win = false;
+        AnimatePlayer.jump = false;
+
+        if (zowiController.device.IsConnected)
+            zowiController.home();
     }
 
     IEnumerator scanner()

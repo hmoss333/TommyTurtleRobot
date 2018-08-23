@@ -193,18 +193,19 @@ public class Movement2 : MonoBehaviour
 
         }
 
+        
+        if (Input.anyKeyDown)
+        {
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2)) return;
+
+            if ((PlayerPrefs.GetInt("Scan") == 1))
+            {
+                checkScanPosition();
+            }
+        }
+
         if (!zowiController.device.IsConnected)
         {
-            if (Input.anyKeyDown)
-            {
-                if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2)) return;
-
-                if ((PlayerPrefs.GetInt("Scan") == 1))
-                {
-                    checkScanPosition();
-                }
-            }
-
             if (move.text.Contains("Forward"))
             {
                 if (facingRight)

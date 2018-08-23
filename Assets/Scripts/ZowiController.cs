@@ -82,6 +82,8 @@ public class ZowiController : MonoBehaviour {
     //############### Movement Commands #################//
     public void walk(int dir)//float steps, int time, int dir)
     {
+        Debug.Log("Walking");
+
         char direction; // = ZowiProtocol.MOVE_STOP_OPTION; ;
 
         if (dir == -1)
@@ -106,6 +108,8 @@ public class ZowiController : MonoBehaviour {
 
     public void turn(int dir)//float steps, int time, int dir) 
     {
+        Debug.Log("Turning");
+
         char direction; //= ZowiProtocol.MOVE_STOP_OPTION;
 
         if (dir == -1)
@@ -263,4 +267,9 @@ public class ZowiController : MonoBehaviour {
         device.send(System.Text.Encoding.UTF8.GetBytes(command));
     }
 
+
+    public static void walkButton(int dir)
+    {
+        walkButton(dir);
+    }
 }

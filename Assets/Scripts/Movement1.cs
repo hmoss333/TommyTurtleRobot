@@ -195,18 +195,19 @@ public class Movement1 : MonoBehaviour
 
         }
 
+        
+        if (Input.anyKeyDown)
+        {
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2)) return;
+
+            if ((PlayerPrefs.GetInt("Scan") == 1))
+            {
+                checkScanPosition();
+            }
+        }
+
         if (!zowiController.device.IsConnected)
         {
-            if (Input.anyKeyDown)
-            {
-                if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2)) return;
-
-                if ((PlayerPrefs.GetInt("Scan") == 1))
-                {
-                    checkScanPosition();
-                }
-            }
-
             if (move.text.Contains("Forward"))
             {
                 if (facingRight)
@@ -480,12 +481,15 @@ public class Movement1 : MonoBehaviour
 
             if (movement[i].Contains("Begin Loop")) { /*i++;*/ saveStartLocation = i; }
 
-            if (movement[i].Contains("End Loop")) {
+            if (movement[i].Contains("End Loop"))
+            {
                 Debug.Log("Count index: " + countIndex);
                 countLoops++;
-                if (countLoops < loopCounts[countIndex]) {
+                if (countLoops < loopCounts[countIndex])
+                {
                     i = saveStartLocation;
-                } else
+                }
+                else
                 {
                     countLoops = 0;
                     if (countIndex < numberOfLoops)
@@ -559,6 +563,7 @@ public class Movement1 : MonoBehaviour
         move.text = "Done Moving";
         checkCorrect();
     }
+
     bool loopAnswerCorrect()
     {
         //2 & 6, 3, 7
