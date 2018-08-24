@@ -62,6 +62,9 @@ public class Movement1 : MonoBehaviour
     public GameObject transmittingBackground;
     float zowiCommandWaitTime;
 
+    Text growText;
+    Text shrinkText;
+
     // Use this for initialization
     void Start()
     {
@@ -120,8 +123,20 @@ public class Movement1 : MonoBehaviour
         GameStatusEventHandler.gameWasStarted("challenge");
 
         zowiController = GameObject.FindObjectOfType<ZowiController>();
+        growText = GameObject.Find("Grow").GetComponentInChildren<Text>();
+        shrinkText = GameObject.Find("Shrink").GetComponentInChildren<Text>();
+        zowiController = GameObject.FindObjectOfType<ZowiController>();
         if (zowiController.device.IsConnected)
+        {
             zowiController.home();
+            growText.text = "Dance";
+            shrinkText.text = "Swing";
+        }
+        else
+        {
+            growText.text = "Grow";
+            shrinkText.text = "Shrink";
+        }
         transmittingBackground.SetActive(false);
 
         switch (ZowiController.time)
@@ -286,8 +301,36 @@ public class Movement1 : MonoBehaviour
     }
 
     public void addSpin() { movement.Add("Spin"); showMoves.text = showMoves.text + "Spin..."; lineSkip(4); playSound(11); }
-    public void addGrow() { movement.Add("Grow"); showMoves.text = showMoves.text + "Grow..."; lineSkip(4); playSound(5);  }
-    public void addShrink() { movement.Add("Shrink"); showMoves.text = showMoves.text + "Shrink..."; lineSkip(6); playSound(9); }
+    public void addGrow()
+    {
+        if (zowiController.device.IsConnected)
+        {
+            movement.Add("Dance");
+            showMoves.text = showMoves.text + "Dance...";
+        }
+        else
+        {
+            movement.Add("Grow");
+            showMoves.text = showMoves.text + "Grow...";
+        }
+        lineSkip(4);
+        playSound(5);
+    }
+    public void addShrink()
+    {
+        if (zowiController.device.IsConnected)
+        {
+            movement.Add("Swing");
+            showMoves.text = showMoves.text + "Swing...";
+        }
+        else
+        {
+            movement.Add("Shrink");
+            showMoves.text = showMoves.text + "Shrink...";
+        }
+        lineSkip(6);
+        playSound(9);
+    }
     public void addTurn() { movement.Add("Turn"); showMoves.text = showMoves.text + "Turn..."; lineSkip(4); playSound(13); }
     public void addJump() { movement.Add("Jump"); showMoves.text = showMoves.text + "Jump..."; lineSkip(4); playSound(6); }
     public void addWalkForward() { movement.Add("Forward"); showMoves.text = showMoves.text + "Forward..."; lineSkip(7); playSound(4); forwardCount += 1;  }
@@ -413,7 +456,7 @@ public class Movement1 : MonoBehaviour
         {
             if (movement[h].Contains(startFormat))
             {
-                if (movement[h].Contains("Right"))
+                if (movement[h].Contains("Right") || movement[h].Contains("Dance") || movement[h].Contains("Swing"))
                 {
                     movement[h] = movement[h].Substring(startFormat.Length, 5);
                 }
@@ -678,11 +721,19 @@ public class Movement1 : MonoBehaviour
                 }
             }
 
-            if (movement[i].Contains("Grow") || movement[i].Contains("Shrink"))
+            if (movement[i].Contains("Swing"))
             {
                 if (zowiController.device.IsConnected)
                 {
-                    zowiController.updown();
+                    zowiController.swing();
+                }
+            }
+
+            if (movement[i].Contains("Dance"))
+            {
+                if (zowiController.device.IsConnected)
+                {
+                    zowiController.crusaito(1);
                 }
             }
 

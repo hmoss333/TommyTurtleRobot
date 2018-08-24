@@ -50,6 +50,12 @@ public class GameManager : MonoBehaviour {
     int buttonCount;
 
     ZowiController zowiController;
+    public GameObject transmittingBackground;
+    public GameObject zowiControlsMenu;
+    public GameObject defaultMenu;
+
+    Text growText;
+    Text shrinkText;
 
     // Use this for initialization
     void Start()
@@ -96,9 +102,21 @@ public class GameManager : MonoBehaviour {
         if (PlayerPrefs.GetInt("Scan") == 1) { StartCoroutine(scanner()); }
         GameStatusEventHandler.gameWasStarted("freeplay");
 
+        growText = GameObject.Find("Grow").GetComponentInChildren<Text>();
+        shrinkText = GameObject.Find("Shrink").GetComponentInChildren<Text>();
         zowiController = GameObject.FindObjectOfType<ZowiController>();
         if (zowiController.device.IsConnected)
+        {
             zowiController.home();
+            growText.text = "Dance";
+            shrinkText.text = "Swing";
+        }
+        else
+        {
+            growText.text = "Grow";
+            shrinkText.text = "Shrink";
+        }
+        transmittingBackground.SetActive(false);
     }
 
     public void zowiWalk(int dir)
@@ -124,6 +142,17 @@ public class GameManager : MonoBehaviour {
 
         if (zowiController.device.IsConnected)
             zowiController.home();
+    }
+
+    public void OpenZowiMenu()
+    {
+        zowiControlsMenu.SetActive(true);
+        defaultMenu.SetActive(false);
+    }
+    public void OpenDefaultMenu()
+    {
+        zowiControlsMenu.SetActive(false);
+        defaultMenu.SetActive(true);
     }
 
     IEnumerator scanner()
@@ -189,85 +218,116 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        if (move.text.Contains("Forward"))
-               {
-            if (facingRight)
+        if (!zowiController.device.IsConnected)
+        {
+            if (move.text.Contains("Forward"))
             {
-                if (player.transform.position.x < 6.7)
+                if (facingRight)
                 {
-                    player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x + 2, player.transform.position.y, 0), Time.deltaTime * 1);
+                    if (player.transform.position.x < 6.7)
+                    {
+                        player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x + 2, player.transform.position.y, 0), Time.deltaTime * 1);
+                    }
+                }
+                else
+                {
+                    if (player.transform.position.x > -7.4)
+                    {
+                        player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x - 2, player.transform.position.y, 0), Time.deltaTime * 1);
+                    }
                 }
             }
-            else
-            {
-                if (player.transform.position.x > -7.4)
-                {
-                    player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x - 2, player.transform.position.y, 0), Time.deltaTime * 1);
-                }
-            }          
-        }
 
-        if (move.text.Contains("Backward"))
-        {
-            if (facingRight)
+            if (move.text.Contains("Backward"))
             {
-                if (player.transform.position.x > -7.4)
+                if (facingRight)
                 {
-                    player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x - 2, player.transform.position.y, 0), Time.deltaTime * 1);                   
+                    if (player.transform.position.x > -7.4)
+                    {
+                        player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x - 2, player.transform.position.y, 0), Time.deltaTime * 1);
+                    }
                 }
-            }
-            else
-            {
-                if (player.transform.position.x < 6.7)
+                else
                 {
-                    player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x + 2, player.transform.position.y, 0), Time.deltaTime * 1);                  
+                    if (player.transform.position.x < 6.7)
+                    {
+                        player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x + 2, player.transform.position.y, 0), Time.deltaTime * 1);
+                    }
                 }
             }
-        }
 
-       
-        if (move.text.Contains("Spin")) { spinOrRoll = true;  player.transform.Rotate(0, Time.deltaTime * 370, 0); }
 
-        if (move.text.Contains("Grow") && growthSwitch)
-        {
-            if (player.transform.localScale.x < 3)
+            if (move.text.Contains("Spin")) { spinOrRoll = true; player.transform.Rotate(0, Time.deltaTime * 370, 0); }
+
+            if (move.text.Contains("Grow") && growthSwitch)
             {
-                player.transform.localScale = new Vector3(player.transform.localScale.x + .5f, player.transform.localScale.y + .5f, player.transform.localScale.z + .5f);
+                if (player.transform.localScale.x < 3)
+                {
+                    player.transform.localScale = new Vector3(player.transform.localScale.x + .5f, player.transform.localScale.y + .5f, player.transform.localScale.z + .5f);
+                }
+                growthSwitch = false;
             }
-            growthSwitch = false;
-        }
 
-        if (move.text.Contains("Shrink") && shrinkSwitch)
-        {
-            if (player.transform.localScale.x > .5f)
+            if (move.text.Contains("Shrink") && shrinkSwitch)
             {
-                player.transform.localScale = new Vector3(player.transform.localScale.x - .5f, player.transform.localScale.y - .5f, player.transform.localScale.z - .5f);
+                if (player.transform.localScale.x > .5f)
+                {
+                    player.transform.localScale = new Vector3(player.transform.localScale.x - .5f, player.transform.localScale.y - .5f, player.transform.localScale.z - .5f);
+                }
+                shrinkSwitch = false;
             }
-            shrinkSwitch = false;
-        }
 
-        if (move.text.Contains("Jump"))
-        {
-            if (jumpSwitch)
-            {               
-                player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x , player.transform.position.y + 2, 0), Time.deltaTime * 4);
-            }
-            else
+            if (move.text.Contains("Jump"))
             {
-                player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x , player.transform.position.y - 2, 0), Time.deltaTime * 4);
+                if (jumpSwitch)
+                {
+                    player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x, player.transform.position.y + 2, 0), Time.deltaTime * 4);
+                }
+                else
+                {
+                    player.transform.position = Vector3.MoveTowards(player.transform.position, new Vector3(player.transform.position.x, player.transform.position.y - 2, 0), Time.deltaTime * 4);
+                }
             }
-       }
 
-        if (move.text.Contains("Turn"))
-        {
-            turned = true;
-             player.transform.Rotate(0, Time.deltaTime * 180, 0);         
+            if (move.text.Contains("Turn"))
+            {
+                turned = true;
+                player.transform.Rotate(0, Time.deltaTime * 180, 0);
+            }
         }
     }
 
     public void addSpin() {  movement.Add("Spin"); showMoves.text = showMoves.text + "Spin..."; lineSkip(4); playSound(11); } 
-    public void addGrow() {movement.Add("Grow"); showMoves.text = showMoves.text + "Grow..."; lineSkip(4); playSound(5); } 
-    public void addShrink() {movement.Add("Shrink"); showMoves.text = showMoves.text + "Shrink..."; lineSkip(6); playSound(9); } 
+    public void addGrow()
+    {
+        if (zowiController.device.IsConnected)
+        {
+            movement.Add("Dance");
+            showMoves.text = showMoves.text + "Dance...";
+        }
+        else
+        {
+            movement.Add("Grow");
+            showMoves.text = showMoves.text + "Grow...";
+        }
+        lineSkip(4);
+        playSound(5);
+    } 
+    public void addShrink()
+    {
+        if (zowiController.device.IsConnected)
+        {
+            movement.Add("Swing");
+            showMoves.text = showMoves.text + "Swing...";
+        }
+        else
+        {
+            movement.Add("Shrink");
+            showMoves.text = showMoves.text + "Shrink...";
+        }
+        lineSkip(6);
+        playSound(9);
+    } 
     public void addTurn() { movement.Add("Turn"); showMoves.text = showMoves.text + "Turn..."; lineSkip(4); playSound(13); } 
     public void addJump() { movement.Add("Jump"); showMoves.text = showMoves.text + "Jump..."; lineSkip(4); playSound(6);  }
     public void addWalkForward() {  movement.Add("Forward"); showMoves.text = showMoves.text + "Forward..."; lineSkip(7); playSound(4);  }
@@ -349,7 +409,10 @@ public class GameManager : MonoBehaviour {
             player.transform.localScale = new Vector3(2, 2, 2);
             player.transform.rotation = Quaternion.Euler(0, 90, 0);
             player.transform.position = new Vector3(-2.64f, -3.72f, 0.28f);
-            StartCoroutine(playingMovement());
+            if (zowiController.device.IsConnected)
+                StartCoroutine(sendToZowi());
+            else
+                StartCoroutine(playingMovement());
         }
         else { move.text = "Must Close All Loops To Play"; }
     }
@@ -363,12 +426,11 @@ public class GameManager : MonoBehaviour {
     //Inserts rich text
     void insertFormat(int i)
     {
-        Debug.Log("Called insertFormat");
         for (int h = 0; h < movement.Count; h++)
         {
             if (movement[h].Contains(startFormat))
             {
-                if (movement[h].Contains("Right"))
+                if (movement[h].Contains("Right") || movement[h].Contains("Dance") || movement[h].Contains("Swing"))
                 {
                     movement[h] = movement[h].Substring(startFormat.Length, 5);
                 }
@@ -388,7 +450,7 @@ public class GameManager : MonoBehaviour {
                 {
                     movement[h] = movement[h].Substring(startFormat.Length, 8);
                 }
-                else if(movement[h].Contains("Forward"))
+                else if (movement[h].Contains("Forward"))
                 {
                     movement[h] = movement[h].Substring(startFormat.Length, 7);
                 }
@@ -400,13 +462,13 @@ public class GameManager : MonoBehaviour {
         }
 
         showMoves.text = "";
-       
+
         movement[i] = (startFormat + movement[i] + endFormat);
-        
+
         for (int j = 0; j < movement.Count; j++)
         {
             showMoves.text += movement[j] + "...";
-        }       
+        }
     }
 
     void playMoveName(string move)
@@ -509,6 +571,108 @@ public class GameManager : MonoBehaviour {
         }
       
         move.text = "Done Moving";
+    }
+
+    IEnumerator sendToZowi()
+    {
+        transmittingBackground.SetActive(true);
+
+        for (int i = 0; i < movement.Count; i++)
+        {
+            insertFormat(i);
+
+            move.text = movement[i];
+
+            //playMoveName(move.text);
+
+            if (movement[i].Contains("Begin Loop")) { /*i++;*/ saveStartLocation = i; }
+
+            if (movement[i].Contains("End Loop")) { countLoops++; if (countLoops < loopsFromSlider) { i = saveStartLocation; } else { countLoops = 0; } }
+
+            if (movement[i].Contains("Forward"))
+            {
+                if (zowiController.device.IsConnected)
+                {
+                    zowiController.walk(1);
+                }
+            }
+            if (movement[i].Contains("Backward"))
+            {
+                if (zowiController.device.IsConnected)
+                {
+                    zowiController.walk(-1);
+                }
+            }
+
+            if (movement[i].Contains("Turn"))// || movement[i].Contains("Spin"))
+            {
+                if (zowiController.device.IsConnected)
+                {
+                    zowiController.turn(1);
+                }
+
+                yield return new WaitForSeconds(6f);
+            }
+
+            if (movement[i].Contains("Spin"))
+            {
+                if (zowiController.device.IsConnected)
+                {
+                    zowiController.turn(1);
+                }
+
+                yield return new WaitForSeconds(14f);
+            }
+
+            if (movement[i].Contains("Sing"))
+            {
+                //AnimatePlayer.sing = true;
+
+                if (zowiController.device.IsConnected)
+                {
+                    zowiController.testSound();
+                }
+            }
+
+            if (movement[i].Contains("Jump"))
+            {
+                if (zowiController.device.IsConnected)
+                {
+                    zowiController.jump();
+                }
+            }
+
+            if (movement[i].Contains("Swing"))
+            {
+                if (zowiController.device.IsConnected)
+                {
+                    zowiController.swing();
+                }
+            }
+
+            if (movement[i].Contains("Dance"))
+            {
+                if (zowiController.device.IsConnected)
+                {
+                    zowiController.crusaito(1);
+                }
+            }
+
+            if (zowiController.device.IsConnected)
+            {
+                zowiController.home();
+            }
+
+            yield return new WaitForSeconds(2f); //slow = 3f, medium = 2f, fast = 1f
+        }
+
+        //if (zowiController.device.IsConnected)
+        //{
+        //    zowiController.home();
+        //}
+        move.text = "Done Moving";
+        //checkCorrect();
+        transmittingBackground.SetActive(false);
     }
 
     IEnumerator jump()

@@ -114,11 +114,11 @@ public class ZowiController : MonoBehaviour {
 
         if (dir == -1)
         {
-            direction = ZowiProtocol.MOVE_TURN_LEFT_OPTION;
+            direction = ZowiProtocol.MOVE_TURN_RIGHT_OPTION;           
         }
         else
         {
-            direction = ZowiProtocol.MOVE_TURN_RIGHT_OPTION;
+            direction = ZowiProtocol.MOVE_TURN_LEFT_OPTION;
         }
 
         //for (int i = 0; i < count; i++)

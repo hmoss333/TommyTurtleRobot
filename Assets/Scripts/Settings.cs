@@ -536,7 +536,7 @@ public class Settings : MonoBehaviour {
         exitButton.SetActive(true);
         tutorialStoryCanvas.SetActive(false);
         stemDashCanvas.SetActive(false);
-        zowiConnectButton.SetActive(false);
+        zowiConnectButton.SetActive(true);
         mainCanvas.SetActive(true);
         exitCanvas.SetActive(false);
         AddFirstPlayerCanvas.SetActive(false);
