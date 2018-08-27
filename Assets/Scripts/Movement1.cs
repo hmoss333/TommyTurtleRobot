@@ -53,6 +53,7 @@ public class Movement1 : MonoBehaviour
     int forwardCount;
     public Text help;
     public GameObject canvas;
+    public GameObject transmitCanvas;
     public GameObject winCanvas;
 
     public Button[] myButtons;
@@ -60,7 +61,8 @@ public class Movement1 : MonoBehaviour
 
     ZowiController zowiController;
     public GameObject transmittingBackground;
-    float zowiCommandWaitTime;
+    //float zowiCommandWaitTime;
+    private bool transmittingToZowi;
 
     Text growText;
     Text shrinkText;
@@ -138,23 +140,24 @@ public class Movement1 : MonoBehaviour
             shrinkText.text = "Shrink";
         }
         transmittingBackground.SetActive(false);
+        transmittingToZowi = false;
 
-        switch (ZowiController.time)
-        {
-            case 1500:
-                zowiCommandWaitTime = 3f;
-                break;
-            case 1000:
-                zowiCommandWaitTime = 2f;
-                break;
-            case 500:
-                zowiCommandWaitTime = 1f;
-                break;
-            default:
-                zowiCommandWaitTime = 2f;
-                Debug.Log("Can't get control time");
-                break;
-        }
+        //switch (ZowiController.time)
+        //{
+        //    case 1500:
+        //        zowiCommandWaitTime = 3f;
+        //        break;
+        //    case 1000:
+        //        zowiCommandWaitTime = 2f;
+        //        break;
+        //    case 500:
+        //        zowiCommandWaitTime = 1f;
+        //        break;
+        //    default:
+        //        zowiCommandWaitTime = 2f;
+        //        Debug.Log("Can't get control time");
+        //        break;
+        //}
     }
      void narrationVoiceOverStop()
     {
@@ -221,7 +224,7 @@ public class Movement1 : MonoBehaviour
             }
         }
 
-        if (!zowiController.device.IsConnected)
+        if (!transmittingToZowi)
         {
             if (move.text.Contains("Forward"))
             {
@@ -436,9 +439,9 @@ public class Movement1 : MonoBehaviour
             player.transform.localScale = new Vector3(2, 2, 2);
             player.transform.rotation = Quaternion.Euler(0, 90, 0);
             player.transform.position = new Vector3(-2.64f, -3.72f, 0.28f);
-            if (zowiController.device.IsConnected)
-                StartCoroutine(sendToZowi());
-            else
+            //if (zowiController.device.IsConnected)
+            //    StartCoroutine(sendToZowi());
+            //else
                 StartCoroutine(playingMovement());
         }
         else { move.text = "Must Close All Loops To Play"; }
@@ -604,7 +607,13 @@ public class Movement1 : MonoBehaviour
         }
 
         move.text = "Done Moving";
-        checkCorrect();
+        if (zowiController.device.IsConnected)
+        {
+            canvas.SetActive(false);
+            transmitCanvas.SetActive(true);
+        }
+        else
+            checkCorrect();
     }
 
     bool loopAnswerCorrect()
@@ -655,6 +664,9 @@ public class Movement1 : MonoBehaviour
     IEnumerator sendToZowi()
     {
         transmittingBackground.SetActive(true);
+        transmittingToZowi = true;
+
+        yield return new WaitForSeconds(1);
 
         for (int i = 0; i < movement.Count; i++)
         {
@@ -690,7 +702,7 @@ public class Movement1 : MonoBehaviour
                     zowiController.turn(1);
                 }
 
-                yield return new WaitForSeconds(7f);
+                yield return new WaitForSeconds(5.5f);
             }
 
             if (movement[i].Contains("Spin"))
@@ -700,7 +712,7 @@ public class Movement1 : MonoBehaviour
                     zowiController.turn(1);
                 }
 
-                yield return new WaitForSeconds(14f);
+                yield return new WaitForSeconds(11f);
             }
 
             if (movement[i].Contains("Sing"))
@@ -750,6 +762,8 @@ public class Movement1 : MonoBehaviour
         //    zowiController.home();
         //}
         move.text = "Done Moving";
+        transmittingBackground.SetActive(false);
+        transmittingToZowi = false;
         checkCorrect();
     }
 
@@ -766,9 +780,20 @@ public class Movement1 : MonoBehaviour
         else
         {
             displayErrorMessage();
-        }
+        }        
+    }
 
-        transmittingBackground.SetActive(false);
+    public void SendCodeToZowi()
+    {
+        transmitCanvas.SetActive(false);
+        canvas.SetActive(true);
+        StartCoroutine(sendToZowi());
+    }
+    public void DontSendCodeToZowi()
+    {
+        transmitCanvas.SetActive(false);
+        canvas.SetActive(true);
+        checkCorrect();
     }
 
     void displayWinScreen()

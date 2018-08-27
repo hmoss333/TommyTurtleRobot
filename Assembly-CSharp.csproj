@@ -97,6 +97,7 @@
      <Compile Include="Assets\STEMDashScripts\deleteCode.cs" />
      <Compile Include="Assets\STEMDashScripts\pollingData.cs" />
      <Compile Include="Assets\STEMDashScripts\saveCollection.cs" />
+     <Compile Include="Assets\ScreenToText\SpeechToTextReq.cs" />
      <Compile Include="Assets\Scripts\Abilities1.cs" />
      <Compile Include="Assets\Scripts\Abilities2.cs" />
      <Compile Include="Assets\Scripts\Abilities3.cs" />
@@ -159,6 +160,7 @@
      <Compile Include="Assets\UniRate\Script\UniRate.cs" />
      <Compile Include="Assets\UniRate\Script\UniRateAppInfo.cs" />
      <Compile Include="Assets\UniRate\Script\UniRateMiniJSON.cs" />
+     <Compile Include="Assets\eve.cs" />
      <None Include="Assets\BT_Library\Arduino_Basic_Test\Read me.txt" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />

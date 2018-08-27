@@ -50,9 +50,11 @@ public class GameManager : MonoBehaviour {
     int buttonCount;
 
     ZowiController zowiController;
+    private bool transmittingToZowi;
     public GameObject transmittingBackground;
     public GameObject zowiControlsMenu;
     public GameObject defaultMenu;
+    public GameObject transmitCanvas;
 
     Text growText;
     Text shrinkText;
@@ -117,6 +119,7 @@ public class GameManager : MonoBehaviour {
             shrinkText.text = "Shrink";
         }
         transmittingBackground.SetActive(false);
+        transmittingToZowi = false;
     }
 
     public void zowiWalk(int dir)
@@ -218,7 +221,7 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        if (!zowiController.device.IsConnected)
+        if (!transmittingToZowi)
         {
             if (move.text.Contains("Forward"))
             {
@@ -409,9 +412,9 @@ public class GameManager : MonoBehaviour {
             player.transform.localScale = new Vector3(2, 2, 2);
             player.transform.rotation = Quaternion.Euler(0, 90, 0);
             player.transform.position = new Vector3(-2.64f, -3.72f, 0.28f);
-            if (zowiController.device.IsConnected)
-                StartCoroutine(sendToZowi());
-            else
+            //if (zowiController.device.IsConnected)
+            //    StartCoroutine(sendToZowi());
+            //else
                 StartCoroutine(playingMovement());
         }
         else { move.text = "Must Close All Loops To Play"; }
@@ -571,11 +574,19 @@ public class GameManager : MonoBehaviour {
         }
       
         move.text = "Done Moving";
+        if (zowiController.device.IsConnected)
+        {
+            defaultMenu.SetActive(false);
+            transmitCanvas.SetActive(true);
+        }
     }
 
     IEnumerator sendToZowi()
     {
         transmittingBackground.SetActive(true);
+        transmittingToZowi = true;
+
+        yield return new WaitForSeconds(1);
 
         for (int i = 0; i < movement.Count; i++)
         {
@@ -611,7 +622,7 @@ public class GameManager : MonoBehaviour {
                     zowiController.turn(1);
                 }
 
-                yield return new WaitForSeconds(6f);
+                yield return new WaitForSeconds(5.5f);
             }
 
             if (movement[i].Contains("Spin"))
@@ -621,7 +632,7 @@ public class GameManager : MonoBehaviour {
                     zowiController.turn(1);
                 }
 
-                yield return new WaitForSeconds(14f);
+                yield return new WaitForSeconds(11f);
             }
 
             if (movement[i].Contains("Sing"))
@@ -673,6 +684,20 @@ public class GameManager : MonoBehaviour {
         move.text = "Done Moving";
         //checkCorrect();
         transmittingBackground.SetActive(false);
+        defaultMenu.SetActive(true);
+        transmittingToZowi = false;
+    }
+
+    public void SendCodeToZowi()
+    {
+        transmitCanvas.SetActive(false);
+        defaultMenu.SetActive(true);
+        StartCoroutine(sendToZowi());
+    }
+    public void DontSendCodeToZowi()
+    {
+        transmitCanvas.SetActive(false);
+        defaultMenu.SetActive(true);
     }
 
     IEnumerator jump()

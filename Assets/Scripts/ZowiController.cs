@@ -13,8 +13,12 @@ public class ZowiController : MonoBehaviour {
     public BluetoothDevice device;
     public static int time = 1000;
 
+    public bool hasConnected;
+
     // Use this for initialization
     private void Awake () {
+        hasConnected = false;
+
         BluetoothAdapter.enableBluetooth();//Force Enabling Bluetooth
                                            
         //Check if instance already exists
@@ -34,11 +38,12 @@ public class ZowiController : MonoBehaviour {
 
 
         device = new BluetoothDevice();
-        if (BluetoothAdapter.isBluetoothEnabled())
-        {
-            connect();
-        }
-        else
+        //if (BluetoothAdapter.isBluetoothEnabled())
+        //{
+        //    connect();
+        //}
+        //else
+        if (!BluetoothAdapter.isBluetoothEnabled())
         {
             BluetoothAdapter.enableBluetooth(); //you can by this force enabling Bluetooth without asking the user
             //statusText.text = "Status : Please enable your Bluetooth";

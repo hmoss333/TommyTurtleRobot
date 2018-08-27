@@ -117,7 +117,6 @@ C:\Users\HMoss.DESKTOP-LO6F45S\Documents\GitHub\TommyTurtleRobot\Temp\bin\Debug\
 C:\Users\HMoss.DESKTOP-LO6F45S\Documents\GitHub\TommyTurtleRobot\Temp\bin\Debug\Unity.CecilTools.dll
 C:\Users\HMoss.DESKTOP-LO6F45S\Documents\GitHub\TommyTurtleRobot\Temp\bin\Debug\Mono.Cecil.Pdb.dll
 C:\Users\HMoss.DESKTOP-LO6F45S\Documents\GitHub\TommyTurtleRobot\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
-C:\Users\HMoss.DESKTOP-LO6F45S\Documents\GitHub\TommyTurtleRobot\Temp\bin\Debug\Assembly-CSharp.pdb
 C:\Users\HMoss.DESKTOP-LO6F45S\Documents\GitHub\TommyTurtleRobot\Temp\bin\Debug\UnityEngine.xml
 C:\Users\HMoss.DESKTOP-LO6F45S\Documents\GitHub\TommyTurtleRobot\Temp\bin\Debug\UnityEditor.xml
 C:\Users\HMoss.DESKTOP-LO6F45S\Documents\GitHub\TommyTurtleRobot\Temp\bin\Debug\UnityEditor.Advertisements.xml
@@ -142,3 +141,4 @@ C:\Users\HMoss.DESKTOP-LO6F45S\Documents\GitHub\TommyTurtleRobot\obj\Debug\Assem
 C:\Users\HMoss.DESKTOP-LO6F45S\Documents\GitHub\TommyTurtleRobot\obj\Debug\Assembly-CSharp-Editor.csproj.CoreCompileInputs.cache
 C:\Users\HMoss.DESKTOP-LO6F45S\Documents\GitHub\TommyTurtleRobot\obj\Debug\Assembly-CSharp-Editor.dll
 C:\Users\HMoss.DESKTOP-LO6F45S\Documents\GitHub\TommyTurtleRobot\obj\Debug\Assembly-CSharp-Editor.pdb
+C:\Users\HMoss.DESKTOP-LO6F45S\Documents\GitHub\TommyTurtleRobot\Temp\bin\Debug\Assembly-CSharp.pdb

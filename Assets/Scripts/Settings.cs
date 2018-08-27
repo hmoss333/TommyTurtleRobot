@@ -249,9 +249,13 @@ public class Settings : MonoBehaviour {
         }
 
 
-        if (zowiController.device.IsReading)
-            zowiButtonText.text = "Connected!";
-
+        //if (zowiController.device.IsReading)
+        //    zowiButtonText.text = "Connected!";
+        if (!zowiController.device.IsReading && zowiController.hasConnected)
+        {
+            connectZowiDevice();
+            Debug.Log("lost connection to robot");
+        }
 
         if (Input.anyKeyDown)
         {
@@ -1643,8 +1647,20 @@ public class Settings : MonoBehaviour {
 
     public void connectZowiDevice()
     {
-        zowiButtonText.text = "Searching...";
+        zowiButtonText.text = "Scanning...";
 
         zowiController.connect();
+
+        StartCoroutine(waitForZowiDevice());
+    }
+    IEnumerator waitForZowiDevice()
+    {
+        zowiController.hasConnected = false;
+
+        while (!zowiController.device.IsReading)
+            yield return null;
+
+        zowiButtonText.text = "Connected!";
+        zowiController.hasConnected = true;
     }
 }
