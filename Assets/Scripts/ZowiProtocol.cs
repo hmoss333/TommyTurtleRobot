@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -56,9 +57,75 @@ public class ZowiProtocol : MonoBehaviour {
     public static string SING_MODEL_3 = "18";
     public static string SING_BUTTON_PUSHED = "19";
 
+    //Not working at the moment; need the correct binary strings
+    public static char EXPRESSION_COMMAND = 'L';
+    public static string EXPRESSION_0 = "0001100010010010010010010001100";
+    public static string EXPRESSION_1 = "0000100001100000100000100001110";
+    public static string EXPRESSION_2 = "00001100010010000100001000011110";
+    public static string EXPRESSION_3 = "00001100010010000100010010001100";
+    public static string EXPRESSION_4 = "00010010010010011110000010000010";
+    public static string EXPRESSION_5 = "00011110010000011100000010011100";
+    public static string EXPRESSION_6 = "00000100001000011100010010001100";
+    public static string EXPRESSION_7 = "00011110000010000100001000010000";
+    public static string EXPRESSION_8 = "00001100010010001100010010001100";
+    public static string EXPRESSION_9 = "00001100010010001110000010001110";
+    public static string EXPRESSION_SMILE = "00000000100001010010001100000000";
+    public static string EXPRESSION_HAPPY_OPEN = "00000000111111010010001100000000";
+    public static string EXPRESSION_HAPPY_CLOSED = "00000000111111011110000000000000";
+    public static string EXPRESSION_HEART = "00010010101101100001010010001100";
+    public static string EXPRESSION_BIG_SURPRISE = "00001100010010100001010010001100";
+    public static string EXPRESSION_SMALL_SURPRISE = "00000000000000001100001100000000";
+    public static string EXPRESSION_TONGUE_OUT = "00111111001001001001000110000000";
+    public static string EXPRESSION_VAMP1 = "00111111101101101101010010000000";
+    public static string EXPRESSION_VAMP2 = "00111111101101010010000000000000";
+    public static string EXPRESSION_LINE = "00000000000000111111000000000000";
+    public static string EXPRESSION_CONFUSED = "00000000001000010101100010000000";
+    public static string EXPRESSION_DIAGONAL = "00100000010000001000000100000010";
+    public static string EXPRESSION_SAD = "00000000001100010010100001000000";
+    public static string EXPRESSION_SAD_OPEN = "00000000001100010010111111000000";
+    public static string EXPRESSION_SAD_CLOSED = "00000000001100011110110011000000";
+    public static string EXPRESSION_OKMOUTH = "00000001000010010100001000000000";
+    public static string EXPRESSION_XMOUTH = "00100001010010001100010010100001";
+    public static string EXPRESSION_INTEROGATION = "00001100010010000100000100000100";
+    public static string EXPRESSION_THUNDER = "00000100001000011100001000010000";
+    public static string EXPRESSION_CULITO = "00000000100001101101010010000000";
+    public static string EXPRESSION_ANGRY = "00000000011110100001100001000000";
+
+
+
+
     public static char ACK_COMMAND = 'A';
     public static char FINAL_ACK_COMMAND = 'F';
 
     public static char BATTERY_COMMAND = 'B';
     public static char PROGRAMID_COMMAND = 'I';
+
+
+
+    //############### Get Face Commands #################//
+
+    public static string getMouthShape(int number, int position)
+    {
+        string[] types = {EXPRESSION_0,EXPRESSION_1,EXPRESSION_2,EXPRESSION_3,EXPRESSION_4,EXPRESSION_5,EXPRESSION_6,EXPRESSION_7,EXPRESSION_8,
+            EXPRESSION_9,EXPRESSION_SMILE,EXPRESSION_HAPPY_OPEN,EXPRESSION_HAPPY_CLOSED,EXPRESSION_HEART,EXPRESSION_BIG_SURPRISE,EXPRESSION_SMALL_SURPRISE,
+            EXPRESSION_TONGUE_OUT,EXPRESSION_VAMP1,EXPRESSION_VAMP2,EXPRESSION_LINE,EXPRESSION_CONFUSED,EXPRESSION_DIAGONAL,EXPRESSION_SAD,EXPRESSION_SAD_OPEN,
+            EXPRESSION_SAD_CLOSED,EXPRESSION_OKMOUTH,EXPRESSION_XMOUTH,EXPRESSION_INTEROGATION,EXPRESSION_THUNDER,EXPRESSION_CULITO,EXPRESSION_ANGRY };
+
+        string tempString = "";
+        for (int i = position; i < position + 4; i++)
+        {
+            //put a nested for loop in here to eliminate the need for the "position" variable
+            try
+            {
+                tempString += types[number][i];
+            }
+            catch
+            {
+                Debug.Log(tempString);
+                return tempString;
+            }
+        }
+
+        return tempString;
+    }
 }

@@ -125,6 +125,7 @@ public class Settings : MonoBehaviour {
     ZowiController zowiController;
     public Text zowiButtonText;
     public Slider speedSlider;
+    public GameObject zowiTransmitPanel;
 
     void Awake()
     {
@@ -168,6 +169,8 @@ public class Settings : MonoBehaviour {
         checkToggleStates();
 
         zowiSpeedSettings();
+
+        //zowiTransmitPanel.SetActive(false);
     }
 
     public void three20x480Portrait() { Screen.SetResolution(320, 480, true); }
@@ -370,7 +373,6 @@ public class Settings : MonoBehaviour {
         abilitiesButton.SetActive(false);
         StartCoroutine(movementChallengeLoad());
     }
-
     IEnumerator movementChallengeLoad()
     {
         int playCount = PlayerPrefs.GetInt("playCount");
@@ -391,7 +393,6 @@ public class Settings : MonoBehaviour {
         movementButton.SetActive(false);
         StartCoroutine(abilitiesChallengeLoad());
     }
-
     IEnumerator abilitiesChallengeLoad()
     {
         if (PlayerPrefs.GetInt("Voice") == 1)
@@ -412,7 +413,6 @@ public class Settings : MonoBehaviour {
         movementButton.SetActive(false);
         StartCoroutine(loopChallengeLoad());
     }
-
     IEnumerator loopChallengeLoad()
     {
         if (PlayerPrefs.GetInt("Voice") == 1)
@@ -433,7 +433,6 @@ public class Settings : MonoBehaviour {
         movementButton.SetActive(false);
         StartCoroutine(comboChallengeLoad());
     }
-
     IEnumerator comboChallengeLoad()
     {
         if (PlayerPrefs.GetInt("Voice") == 1)
@@ -1643,6 +1642,24 @@ public class Settings : MonoBehaviour {
             #elif UNITY_ANDROID
                     Application.OpenURL("https://play.google.com/store/apps/details?id=com.zyrobotics.stemdash");
             #endif
+    }
+
+
+    public void zowiTransmitYes()
+    {
+        //set value to true
+        //show last active canvas
+        //mainCanvas.SetActive(true);
+        //zowiTransmitPanel.SetActive(false);
+        zowiController.testFace(0);
+    }
+    public void zowiTransmitNo()
+    {
+        //set value to false
+        //show last active canvas
+        //mainCanvas.SetActive(true);
+        //zowiTransmitPanel .SetActive(false);
+        zowiController.testFace(1);
     }
 
     public void connectZowiDevice()

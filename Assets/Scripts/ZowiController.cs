@@ -258,7 +258,7 @@ public class ZowiController : MonoBehaviour {
         testSound();
     }
 
-    //############### Gesture Commands #################//
+    //############### Sound Commands #################//
 
     public void testSound()
     {
@@ -271,6 +271,29 @@ public class ZowiController : MonoBehaviour {
 
         device.send(System.Text.Encoding.UTF8.GetBytes(command));
     }
+
+    //############### Face Commands #################//
+
+    public void testFace(int val)
+    {
+        String command = String.Format(
+                "" + ZowiProtocol.EXPRESSION_COMMAND +
+                        ZowiProtocol.SEPARATOR +
+                        ZowiProtocol.getMouthShape(val, 0) +
+                        ZowiProtocol.getMouthShape(val, 4) +
+                        ZowiProtocol.getMouthShape(val, 8) +
+                        ZowiProtocol.getMouthShape(val, 12) +
+                        ZowiProtocol.getMouthShape(val, 16) +
+                        ZowiProtocol.getMouthShape(val, 20) +
+                        ZowiProtocol.getMouthShape(val, 24) +
+                        ZowiProtocol.getMouthShape(val, 28) +
+                        ZowiProtocol.SEPARATOR +
+                        ZowiProtocol.FINAL);
+
+        device.send(System.Text.Encoding.UTF8.GetBytes(command));
+    }
+
+
 
 
     public static void walkButton(int dir)
