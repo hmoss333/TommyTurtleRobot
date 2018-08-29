@@ -598,7 +598,7 @@ public class Movement2 : MonoBehaviour
         }
 
         move.text = "Done Moving";
-        if (zowiController.device.IsConnected)
+        if (zowiController.device.IsConnected && zowiController.sendToZowi == 1)
         {
             canvas.SetActive(false);
             transmitCanvas.SetActive(true);

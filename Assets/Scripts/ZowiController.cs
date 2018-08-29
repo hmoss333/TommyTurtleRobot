@@ -14,10 +14,12 @@ public class ZowiController : MonoBehaviour {
     public static int time = 1000;
 
     public bool hasConnected;
+    public int sendToZowi;
 
     // Use this for initialization
     private void Awake () {
         hasConnected = false;
+        sendToZowi = 0;
 
         BluetoothAdapter.enableBluetooth();//Force Enabling Bluetooth
                                            

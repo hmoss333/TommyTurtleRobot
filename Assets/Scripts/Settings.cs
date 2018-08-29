@@ -8,6 +8,9 @@ using UnityEngine.EventSystems;
 
 public class Settings : MonoBehaviour {
 
+    public enum MenuSelection { Tutorial, FreePlay, Challenges, Settings, STEMDash, Exit };
+    public MenuSelection currentMenu;
+
     const float minScanSpeed = 0.05f;
     const float maxScanSpeed = 9.00f;
     float scanTime = 0.0f;
@@ -170,7 +173,8 @@ public class Settings : MonoBehaviour {
 
         zowiSpeedSettings();
 
-        //zowiTransmitPanel.SetActive(false);
+        zowiTransmitPanel.SetActive(false);
+        zowiController.sendToZowi = 0;
     }
 
     public void three20x480Portrait() { Screen.SetResolution(320, 480, true); }
@@ -475,45 +479,71 @@ public class Settings : MonoBehaviour {
 
     public void showChallenge()
     {
+        currentMenu = MenuSelection.Challenges;
+
         tutorialButton.SetActive(false);
         freePlayButton.SetActive(false);
+        challengeButton.SetActive(false);
         settingsButton.SetActive(false);
         exitButton.SetActive(false);
         stemDashCanvas.SetActive(false);
         zowiConnectButton.SetActive(false);
         AddFirstPlayerCanvas.SetActive(false);
-        
 
         STEMDashOptionsBtn.SetActive(false);
-        if (LoginToPortal.Instance.userIsLoggedIn)
+
+        if (zowiController.device.IsConnected && zowiController.sendToZowi == 0)
         {
-            pollingData.Instance.retrieveData("tommyTurtle");
-            currentSelectedMode = gameMode.challenge;
-        } else
+            zowiTransmitPanel.SetActive(true);
+        }
+        else if (!zowiController.device.IsConnected || zowiController.sendToZowi != 0)
         {
-            StartCoroutine(challengeLoad());
+            challengeButton.SetActive(true);
+
+            if (LoginToPortal.Instance.userIsLoggedIn)
+            {
+                pollingData.Instance.retrieveData("tommyTurtle");
+                currentSelectedMode = gameMode.challenge;
+            }
+            else
+            {
+                StartCoroutine(challengeLoad());
+            }
         }
     }
 
     public void freePlay()
     {
-        settingsButton.SetActive(false);
-        challengeButton.SetActive(false);
+        currentMenu = MenuSelection.FreePlay;
+
         tutorialButton.SetActive(false);
+        freePlayButton.SetActive(false);
+        challengeButton.SetActive(false);
+        settingsButton.SetActive(false);
         exitButton.SetActive(false);
         stemDashCanvas.SetActive(false);
         zowiConnectButton.SetActive(false);
+        AddFirstPlayerCanvas.SetActive(false);
 
         STEMDashOptionsBtn.SetActive(false);
 
-        if (LoginToPortal.Instance.userIsLoggedIn)
+        if (zowiController.device.IsConnected && zowiController.sendToZowi == 0)
         {
-            pollingData.Instance.retrieveData("tommyTurtle");
-            currentSelectedMode = gameMode.freePlay;
+            zowiTransmitPanel.SetActive(true);
         }
-        else
+        else if (!zowiController.device.IsConnected || zowiController.sendToZowi != 0)
         {
-            StartCoroutine(freePlayLoad());
+            freePlayButton.SetActive(true);
+
+            if (LoginToPortal.Instance.userIsLoggedIn)
+            {
+                pollingData.Instance.retrieveData("tommyTurtle");
+                currentSelectedMode = gameMode.freePlay;
+            }
+            else
+            {
+                StartCoroutine(freePlayLoad());
+            }
         }
     }
 
@@ -1647,19 +1677,27 @@ public class Settings : MonoBehaviour {
 
     public void zowiTransmitYes()
     {
-        //set value to true
-        //show last active canvas
+        zowiController.sendToZowi = 1; //send
         //mainCanvas.SetActive(true);
-        //zowiTransmitPanel.SetActive(false);
-        zowiController.testFace(0);
+        zowiTransmitPanel.SetActive(false);
+        //zowiController.testFace(1); //testing
+
+        if (currentMenu == MenuSelection.Challenges)
+            showChallenge();
+        else if (currentMenu == MenuSelection.FreePlay)
+            freePlay();
     }
     public void zowiTransmitNo()
     {
-        //set value to false
-        //show last active canvas
+        zowiController.sendToZowi = 2; //don't send
         //mainCanvas.SetActive(true);
-        //zowiTransmitPanel .SetActive(false);
-        zowiController.testFace(1);
+        zowiTransmitPanel.SetActive(false);
+        //zowiController.testFace(2); //testing
+
+        if (currentMenu == MenuSelection.Challenges)
+            showChallenge();
+        else if (currentMenu == MenuSelection.FreePlay)
+            freePlay();
     }
 
     public void connectZowiDevice()
