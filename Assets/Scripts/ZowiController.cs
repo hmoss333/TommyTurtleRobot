@@ -276,7 +276,7 @@ public class ZowiController : MonoBehaviour {
 
     //############### Face Commands #################//
 
-    public void testFace(int val)
+    public void updateFace(int val)
     {
         String command = String.Format(
                 "" + ZowiProtocol.EXPRESSION_COMMAND +

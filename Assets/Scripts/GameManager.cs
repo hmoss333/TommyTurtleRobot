@@ -53,6 +53,9 @@ public class GameManager : MonoBehaviour {
     private bool transmittingToZowi;
     public GameObject transmittingBackground;
     public GameObject zowiControlsMenu;
+    public GameObject zowiControlsMenuButton;
+    public GameObject zowiFaceMenu;
+    public GameObject zowiFaceMenuButton;
     public GameObject defaultMenu;
     public GameObject transmitCanvas;
 
@@ -107,14 +110,16 @@ public class GameManager : MonoBehaviour {
         growText = GameObject.Find("Grow").GetComponentInChildren<Text>();
         shrinkText = GameObject.Find("Shrink").GetComponentInChildren<Text>();
         zowiController = GameObject.FindObjectOfType<ZowiController>();
-        if (zowiController.device.IsConnected)
-        {
+        if (zowiController && zowiController.device.IsConnected)
+        {           
             zowiController.home();
             growText.text = "Dance";
             shrinkText.text = "Swing";
         }
         else
         {
+            zowiFaceMenuButton.SetActive(false);
+            zowiControlsMenuButton.SetActive(false);
             growText.text = "Grow";
             shrinkText.text = "Shrink";
         }
@@ -156,6 +161,14 @@ public class GameManager : MonoBehaviour {
     {
         zowiControlsMenu.SetActive(false);
         defaultMenu.SetActive(true);
+    }
+    public void OpenZowiFaceMenu()
+    {
+        zowiFaceMenu.SetActive(true);
+    }
+    public void CloseZowiFaceMenu()
+    {
+        zowiFaceMenu.SetActive(false);
     }
 
     IEnumerator scanner()
@@ -698,6 +711,12 @@ public class GameManager : MonoBehaviour {
     {
         transmitCanvas.SetActive(false);
         defaultMenu.SetActive(true);
+    }
+
+    public void UpdateZowiFace(int val)
+    {
+        if (zowiController)
+            zowiController.updateFace(val);
     }
 
     IEnumerator jump()
