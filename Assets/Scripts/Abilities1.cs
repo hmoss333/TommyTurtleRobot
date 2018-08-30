@@ -123,7 +123,7 @@ public class Abilities1 : MonoBehaviour
         growText = GameObject.Find("Grow").GetComponentInChildren<Text>();
         shrinkText = GameObject.Find("Shrink").GetComponentInChildren<Text>();
         zowiController = GameObject.FindObjectOfType<ZowiController>();
-        if (zowiController.device.IsConnected)
+        if (zowiController && zowiController.device.IsConnected)
         {
             zowiController.home();
             growText.text = "Dance";
@@ -289,7 +289,7 @@ public class Abilities1 : MonoBehaviour
     public void addSpin() { movement.Add("Spin"); showMoves.text = showMoves.text + "Spin..."; lineSkip(4); playSound(11); }
     public void addGrow()
     {
-        if (zowiController.device.IsConnected)
+        if (zowiController && zowiController.device.IsConnected)
         {
             movement.Add("Dance");
             showMoves.text = showMoves.text + "Dance...";
@@ -304,7 +304,7 @@ public class Abilities1 : MonoBehaviour
     }
     public void addShrink()
     {
-        if (zowiController.device.IsConnected)
+        if (zowiController && zowiController.device.IsConnected)
         {
             movement.Add("Swing");
             showMoves.text = showMoves.text + "Swing...";
@@ -559,7 +559,7 @@ public class Abilities1 : MonoBehaviour
         }
 
         move.text = "Done Moving";
-        if (zowiController.device.IsConnected && zowiController.sendToZowi == 1)
+        if (zowiController && zowiController.device.IsConnected && zowiController.sendToZowi == 1)
         {
             canvas.SetActive(false);
             transmitCanvas.SetActive(true);

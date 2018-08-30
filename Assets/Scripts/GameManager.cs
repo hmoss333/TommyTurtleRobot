@@ -118,8 +118,8 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
-            zowiFaceMenuButton.SetActive(false);
-            zowiControlsMenuButton.SetActive(false);
+            //zowiFaceMenuButton.SetActive(false); //comment out for weekly update
+            //zowiControlsMenuButton.SetActive(false); //comment out for weekly update
             growText.text = "Grow";
             shrinkText.text = "Shrink";
         }

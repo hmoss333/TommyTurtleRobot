@@ -128,7 +128,7 @@ public class Movement1 : MonoBehaviour
         growText = GameObject.Find("Grow").GetComponentInChildren<Text>();
         shrinkText = GameObject.Find("Shrink").GetComponentInChildren<Text>();
         zowiController = GameObject.FindObjectOfType<ZowiController>();
-        if (zowiController.device.IsConnected)
+        if (zowiController && zowiController.device.IsConnected)
         {
             zowiController.home();
             growText.text = "Dance";
@@ -607,7 +607,7 @@ public class Movement1 : MonoBehaviour
         }
 
         move.text = "Done Moving";
-        if (zowiController.device.IsConnected && zowiController.sendToZowi == 1)
+        if (zowiController && zowiController.device.IsConnected && zowiController.sendToZowi == 1)
         {
             canvas.SetActive(false);
             transmitCanvas.SetActive(true);
