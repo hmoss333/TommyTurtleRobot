@@ -628,14 +628,41 @@ public class Settings : MonoBehaviour {
 
     public void tutorial()
     {
-        if (!LoginToPortal.Instance.userIsLoggedIn)
+        currentMenu = MenuSelection.Tutorial;
+
+        tutorialButton.SetActive(false);
+        freePlayButton.SetActive(false);
+        challengeButton.SetActive(false);
+        settingsButton.SetActive(false);
+        exitButton.SetActive(false);
+        stemDashCanvas.SetActive(false);
+        zowiConnectButton.SetActive(false);
+        AddFirstPlayerCanvas.SetActive(false);
+        tutorialStoryCanvas.SetActive(false);
+
+        STEMDashOptionsBtn.SetActive(false);
+
+        if (zowiController.device.IsConnected && zowiController.sendToZowi == 0)
         {
-            int playCount = PlayerPrefs.GetInt("playCount");
-            PlayerPrefs.SetInt("playCount", ++playCount);
+            zowiTransmitPanel.SetActive(true);
         }
-        LoadLevel("Tutorial");
-        //Application.LoadLevel("Tutorial");
+        else if (!zowiController.device.IsConnected || zowiController.sendToZowi != 0)
+        {
+            challengeButton.SetActive(true);
+
+            if (!LoginToPortal.Instance.userIsLoggedIn)
+            {
+                int playCount = PlayerPrefs.GetInt("playCount");
+                PlayerPrefs.SetInt("playCount", ++playCount);
+            }
+            //else
+            //{
+                LoadLevel("Tutorial");
+                //Application.LoadLevel("Tutorial");
+            //}
+        }
     }
+
     public void showstemDashInfo()
     {
         stemdashInfoCanvas.SetActive(true);
@@ -1686,6 +1713,8 @@ public class Settings : MonoBehaviour {
             showChallenge();
         else if (currentMenu == MenuSelection.FreePlay)
             freePlay();
+        else if (currentMenu == MenuSelection.Tutorial)
+            tutorial();
     }
     public void zowiTransmitNo()
     {
@@ -1698,6 +1727,8 @@ public class Settings : MonoBehaviour {
             showChallenge();
         else if (currentMenu == MenuSelection.FreePlay)
             freePlay();
+        else if (currentMenu == MenuSelection.Tutorial)
+            tutorial();
     }
 
     public void connectZowiDevice()

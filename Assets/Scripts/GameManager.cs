@@ -118,8 +118,8 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
-            //zowiFaceMenuButton.SetActive(false); //comment out for weekly update
-            //zowiControlsMenuButton.SetActive(false); //comment out for weekly update
+            zowiFaceMenuButton.SetActive(false); //comment out for weekly update
+            zowiControlsMenuButton.SetActive(false); //comment out for weekly update
             growText.text = "Grow";
             shrinkText.text = "Shrink";
         }
@@ -425,9 +425,9 @@ public class GameManager : MonoBehaviour {
             player.transform.localScale = new Vector3(2, 2, 2);
             player.transform.rotation = Quaternion.Euler(0, 90, 0);
             player.transform.position = new Vector3(-2.64f, -3.72f, 0.28f);
-            //if (zowiController.device.IsConnected)
-            //    StartCoroutine(sendToZowi());
-            //else
+            if (zowiController.device.IsConnected && zowiController.sendToZowi == 1)
+                StartCoroutine(sendToZowi());
+            else
                 StartCoroutine(playingMovement());
         }
         else { move.text = "Must Close All Loops To Play"; }
@@ -587,11 +587,11 @@ public class GameManager : MonoBehaviour {
         }
       
         move.text = "Done Moving";
-        if (zowiController.device.IsConnected && zowiController.sendToZowi == 1)
-        {
-            defaultMenu.SetActive(false);
-            transmitCanvas.SetActive(true);
-        }
+        //if (zowiController.device.IsConnected && zowiController.sendToZowi == 1)
+        //{
+        //    defaultMenu.SetActive(false);
+        //    transmitCanvas.SetActive(true);
+        //}
     }
 
     IEnumerator sendToZowi()

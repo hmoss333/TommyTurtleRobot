@@ -407,9 +407,9 @@ public class Abilities4 : MonoBehaviour
             player.transform.localScale = new Vector3(2, 2, 2);
             player.transform.rotation = Quaternion.Euler(0, 90, 0);
             player.transform.position = new Vector3(-2.64f, -3.72f, 0.28f);
-            //if (zowiController.device.IsConnected)
-            //    StartCoroutine(sendToZowi());
-            //else
+            if (zowiController.device.IsConnected && zowiController.sendToZowi == 1)
+                StartCoroutine(sendToZowi());
+            else
                 StartCoroutine(playingMovement());
         }
         else { move.text = "Must Close All Loops To Play"; }
@@ -561,12 +561,12 @@ public class Abilities4 : MonoBehaviour
         }
 
         move.text = "Done Moving";
-        if (zowiController.device.IsConnected && zowiController.sendToZowi == 1)
-        {
-            canvas.SetActive(false);
-            transmitCanvas.SetActive(true);
-        }
-        else
+        //if (zowiController.device.IsConnected && zowiController.sendToZowi == 1)
+        //{
+        //    canvas.SetActive(false);
+        //    transmitCanvas.SetActive(true);
+        //}
+        //else
             checkCorrect();
     }
 

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Numbers : MonoBehaviour {
 
     private AnimatePlayer player;
+    private Sprite sprite;
+    public Sprite[] values;
 
     public float yOff;
     float yPos;
